@@ -4,20 +4,26 @@ angular.module("userServiceModule", ["authServiceModule"])
 	
 	var fac = {};
 	
-	fac.write2Console = function() {
-		console.log("userService is up");
-	};
-	
 	fac.createUser = function(userName, password) {
-		var newUser = { 
-			"userName" : userName, 
-			"password" : password, 
-			"role" : "USER" 
-		};
-		
 		var deferred = $q.defer();
-		deferred.resolve(newUser);
-		
+//		if (!userName || !password) {
+			
+			var newUser = { 
+				"userName" : userName, 
+				"password" : password, 
+				"role" : "USER" 
+			};
+			deferred.resolve(newUser);
+			
+//		} else {
+//			
+//			var errorObj = {
+//				"message": "MOCK Missing data",
+//				"statusCode": 401,
+//			};
+//			deferred.reject(errorObj);
+//			
+//		}
 		return deferred.promise;
 	};
 	
