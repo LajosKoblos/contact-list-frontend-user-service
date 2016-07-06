@@ -1,6 +1,6 @@
 {
   "name": "userService",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,5 +16,15 @@
   "bugs": {
     "url": "https://github.com/LajosKoblos/contact-list-frontend-user-service/issues"
   },
-  "homepage": "https://github.com/LajosKoblos/contact-list-frontend-user-service#readme"
+  "homepage": "https://github.com/LajosKoblos/contact-list-frontend-user-service#readme",
+  "devDependencies": {
+    "angular": "^1.5.7",
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-requirejs": "^1.0.0",
+    "requirejs": "^2.2.0"
+  }
 }
