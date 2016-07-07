@@ -140,7 +140,7 @@ angular.module("userServiceModule", ["authServiceModule"])
             method: "GET",
         };
         var http = $httpWithProtection(request).then(function(result){
-            deferred.resolve(result);
+            deferred.resolve(result.data);
         }, function(reason){
             deferred.reject(reason);
         });
