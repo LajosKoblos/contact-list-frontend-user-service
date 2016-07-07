@@ -3,6 +3,7 @@ angular.module("userServiceModule", ["authServiceModule"])
 .factory("userService", function ($httpWithProtection, $q) {
 	
 	var fac = {};
+    var baseUrl = "http://localhost:8080";
 
     /*
     Parameter
@@ -17,7 +18,7 @@ angular.module("userServiceModule", ["authServiceModule"])
 		var deferred = $q.defer();
 
 		var request = {
-			url: "http://localhost:8080/users",
+			url: baseUrl + "/users",
             method: "POST",
 			data: userModel
 		};
@@ -43,7 +44,7 @@ angular.module("userServiceModule", ["authServiceModule"])
 		var deferred = $q.defer();
 
         var request = {
-            url: "http://localhost:8080/users/changepassword",
+            url: baseUrl + "/users/changepassword",
             method: "PUT",
             data: passwordChangeModel
         };
@@ -69,8 +70,8 @@ angular.module("userServiceModule", ["authServiceModule"])
         var deferred = $q.defer();
 
         var request = {
-            url: "http://localhost:8080/users/modifyUser",
-            method: "POST",
+            url: baseUrl + "/users",
+            method: "PUT",
             data: modifyUserModel
         };
         var http = $httpWithProtection(request).then(function(result){
@@ -103,7 +104,7 @@ angular.module("userServiceModule", ["authServiceModule"])
         var deferred = $q.defer();
 
         var request = {
-            url: "http://localhost:8080/users/" + userModel.userName,
+            url: baseUrl + "/users/" + userModel.userName,
             method: "GET",
         };
         var http = $httpWithProtection(request).then(function(result){
@@ -135,7 +136,7 @@ angular.module("userServiceModule", ["authServiceModule"])
         var deferred = $q.defer();
 
         var request = {
-            url: "http://localhost:8080/users",
+            url: baseUrl + "/users",
             method: "GET",
         };
         var http = $httpWithProtection(request).then(function(result){
