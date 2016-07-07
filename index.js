@@ -16,10 +16,8 @@ angular.module("userServiceModule", ["authServiceModule"])
 	fac.createUser = function(userModel) {
 		var deferred = $q.defer();
 
-        //TODO: Validation
-
 		var request = {
-			url: "http://localhost:8080/users/create",
+			url: "http://localhost:8080/users",
             method: "POST",
 			data: userModel
 		};
@@ -43,7 +41,6 @@ angular.module("userServiceModule", ["authServiceModule"])
 	fac.changeUserPassword = function(passwordChangeModel) {
 
 		var deferred = $q.defer();
-        //TODO: Validation
 
         var request = {
             url: "http://localhost:8080/users/changepassword",
@@ -61,20 +58,20 @@ angular.module("userServiceModule", ["authServiceModule"])
 
     /*
     Parameter
-        assignRoleModel =
+     modifyUserModel =
         {
             userName : "userName",
-            role: "ADMIN || USER"
+            role: "ADMIN || USER",
+            password: "password"
         }
      */
-	fac.setRole = function(assignRoleModel) {
+	fac.modifyUser = function(modifyUserModel) {
         var deferred = $q.defer();
-        //TODO: Validation
 
         var request = {
-            url: "http://localhost:8080/users/assignrole",
+            url: "http://localhost:8080/users/modifyUser",
             method: "POST",
-            data: assignRoleModel
+            data: modifyUserModel
         };
         var http = $httpWithProtection(request).then(function(result){
             deferred.resolve(result);
@@ -104,7 +101,6 @@ angular.module("userServiceModule", ["authServiceModule"])
      */
 	fac.getUser = function(userModel) {
         var deferred = $q.defer();
-        //TODO: Validation
 
         var request = {
             url: "http://localhost:8080/users/" + userModel.userName,
@@ -137,7 +133,6 @@ angular.module("userServiceModule", ["authServiceModule"])
 	fac.getUsers = function() {
 
         var deferred = $q.defer();
-        //TODO: Validation
 
         var request = {
             url: "http://localhost:8080/users",
