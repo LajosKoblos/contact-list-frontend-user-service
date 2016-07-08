@@ -25,7 +25,7 @@ angular.module("userServiceModule", ["authServiceModule"])
 		var http = $httpWithProtection(request).then(function(result){
             deferred.resolve(result);
         }, function(reason){
-            deferred.reject(reason);
+            deferred.reject(createServerErrorObject(reason));
         });
 
 		return deferred.promise;
@@ -51,7 +51,7 @@ angular.module("userServiceModule", ["authServiceModule"])
         var http = $httpWithProtection(request).then(function(result){
             deferred.resolve(result);
         }, function(reason){
-            deferred.reject(reason);
+            deferred.reject(createServerErrorObject(reason));
         });
 
 		return deferred.promise;
@@ -77,7 +77,7 @@ angular.module("userServiceModule", ["authServiceModule"])
         var http = $httpWithProtection(request).then(function(result){
             deferred.resolve(result);
         }, function(reason){
-            deferred.reject(reason);
+            deferred.reject(createServerErrorObject(reason));
         });
 
         return deferred.promise;
@@ -110,7 +110,7 @@ angular.module("userServiceModule", ["authServiceModule"])
         var http = $httpWithProtection(request).then(function(result){
             deferred.resolve(result);
         }, function(reason){
-            deferred.reject(reason);
+            deferred.reject(createServerErrorObject(reason));
         });
 
         return deferred.promise;
@@ -142,11 +142,20 @@ angular.module("userServiceModule", ["authServiceModule"])
         var http = $httpWithProtection(request).then(function(result){
             deferred.resolve(result);
         }, function(reason){
-            deferred.reject(reason);
+            deferred.reject(createServerErrorObject(reason));
         });
 
         return deferred.promise;
 	};
+
+    function createServerErrorObject(error) {
+        return {
+            message: error.data.message,
+            status: error.status,
+            fields: error.data.fields,
+            httpResponse: error.config
+        };
+    }
 
     return fac;
 });
